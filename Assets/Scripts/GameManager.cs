@@ -48,6 +48,49 @@ public enum EcologicCradType
 
 public class GameManager : GenericSingleton<GameManager>
 {
+
+
+    public string[] frasesSostenibilidad = 
+    {
+    "Reciclar 1 tonelada de papel salva 17 árboles (EPA)",
+    "La energía solar cubrirá 45% de electricidad mundial en 2050 (IEA)",
+    "Un grifo que gotea pierde 75L agua/día (OMS)",
+    "La moda rápida genera 10% de emisiones globales (ONU)",
+    "1/3 de los alimentos se desperdicia mundialmente (FAO)",
+    "Edificios consumen 36% de energía global (GlobalABC)",
+    "Reciclar aluminio ahorra 95% de energía (IAI)",
+    "Océanos absorben 25% del CO₂ humano (UNESCO)",
+    "Economía circular reduce 48% emisiones UE (Ellen MacArthur)",
+    "LEDs consumen 85% menos que bombillas incandescentes (DoE)",
+    "80% plásticos oceánicos viene de tierra (NatGeo)",
+    "Reusar 1kg textiles evita 25kg CO₂ (WRAP UK)",
+    "Vehículos eléctricos reducen 60% emisiones (IEA)",
+    "Agricultura regenerativa captura CO₂ en suelos (Drawdown)",
+    "Solo 40% de electrónicos se recicla (UNU)",
+    "1 millón botellas plásticas compradas/minuto (UNEP)",
+    "Humedales almacenan 55x más carbono que bosques (Ramsar)",
+    "Doblar vida de smartphone reduce 40% emisiones (EEB)",
+    "Energía eólica marina podría abastecer mundo x18 (IEA)",
+    "Compostaje reduce 50% residuos en vertederos (EPA)",
+    "Deforestación causa 15% emisiones globales (IPCC)",
+    "Transporte público reduce 67% huella carbono (UITP)",
+    "1 árbol absorbe 22kg CO₂/año (Arbor Day)",
+    "Consumo textil aumentó 400% en 20 años (Ellen MacArthur)",
+    "Renovables crearon 12M empleos en 2023 (IRENA)",
+    "Reciclar vidrio ahorra 30% energía (GPI)",
+    "Carne bovina genera 60kg CO₂/kg (Science)",
+    "Ciudades consumen 78% energía mundial (ONU-Hábitat)",
+    "Restaurar 15% ecosistemas evita 60% extinciones (CDB)",
+    "Agua reciclada cubriría 40% demanda industrial (Banco Mundial)"
+    };
+
+
+
+
+
+
+
+    
     public GameState GameState {get; set;} = GameState.None;
 
     public Deck DeckCard;
