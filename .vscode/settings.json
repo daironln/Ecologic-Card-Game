@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "balatro-feel-main.sln"
+    "dotnet.defaultSolution": "Ecologic-Card-Game.sln"
 }
