@@ -23,10 +23,19 @@ public class UICardManager : GenericSingleton<UICardManager>
     public Image CardImage;
 
 
-    public void FadeInPanne()
+    public void FadeInPanne(CardVisual visual)
     {
-        EducativePhrase.SetText(GameManager.Instance.frasesSostenibilidad[Random.Range(0, GameManager.Instance.frasesSostenibilidad.Lenght)]);
+        EducativePhrase.SetText(GameManager.Instance.frasesSostenibilidad[Random.Range(0, GameManager.Instance.frasesSostenibilidad.Length)]);
         Panne.transform.GetComponent<CanvasGroup>().DOFade(1, 0.4f).SetEase(Ease.OutBack);
+
+
+        CardImage.sprite = visual.cardImage.sprite;
+        CardTittle.SetText(visual.parentCard.CardTittle);
+        CardDescription.SetText(visual.parentCard.CardDescription);
+        CardType.SetText($"•{visual.parentCard.Clasification}•");
+        CardInsideTittle.SetText(visual.parentCard.CardTittle.ToUpper());
+        CardInsideTipo.SetText(visual.parentCard.Clasification);
+        CardInsideDescription.SetText(visual.parentCard.CardDescription);
     }
 
     public void FadeOutPanne()

@@ -52,36 +52,36 @@ public class GameManager : GenericSingleton<GameManager>
 
     public string[] frasesSostenibilidad = 
     {
-    "Reciclar 1 tonelada de papel salva 17 árboles (EPA)",
-    "La energía solar cubrirá 45% de electricidad mundial en 2050 (IEA)",
-    "Un grifo que gotea pierde 75L agua/día (OMS)",
-    "La moda rápida genera 10% de emisiones globales (ONU)",
-    "1/3 de los alimentos se desperdicia mundialmente (FAO)",
-    "Edificios consumen 36% de energía global (GlobalABC)",
-    "Reciclar aluminio ahorra 95% de energía (IAI)",
-    "Océanos absorben 25% del CO₂ humano (UNESCO)",
-    "Economía circular reduce 48% emisiones UE (Ellen MacArthur)",
-    "LEDs consumen 85% menos que bombillas incandescentes (DoE)",
-    "80% plásticos oceánicos viene de tierra (NatGeo)",
-    "Reusar 1kg textiles evita 25kg CO₂ (WRAP UK)",
-    "Vehículos eléctricos reducen 60% emisiones (IEA)",
-    "Agricultura regenerativa captura CO₂ en suelos (Drawdown)",
-    "Solo 40% de electrónicos se recicla (UNU)",
-    "1 millón botellas plásticas compradas/minuto (UNEP)",
-    "Humedales almacenan 55x más carbono que bosques (Ramsar)",
-    "Doblar vida de smartphone reduce 40% emisiones (EEB)",
-    "Energía eólica marina podría abastecer mundo x18 (IEA)",
-    "Compostaje reduce 50% residuos en vertederos (EPA)",
-    "Deforestación causa 15% emisiones globales (IPCC)",
-    "Transporte público reduce 67% huella carbono (UITP)",
-    "1 árbol absorbe 22kg CO₂/año (Arbor Day)",
-    "Consumo textil aumentó 400% en 20 años (Ellen MacArthur)",
-    "Renovables crearon 12M empleos en 2023 (IRENA)",
-    "Reciclar vidrio ahorra 30% energía (GPI)",
-    "Carne bovina genera 60kg CO₂/kg (Science)",
-    "Ciudades consumen 78% energía mundial (ONU-Hábitat)",
-    "Restaurar 15% ecosistemas evita 60% extinciones (CDB)",
-    "Agua reciclada cubriría 40% demanda industrial (Banco Mundial)"
+        "Reciclar una tonelada de papel salva 17 árboles y ahorra 26,500 litros de agua (EPA).",
+        "La energía solar podría satisfacer el 45% de la demanda eléctrica mundial para 2050 (Agencia Internacional de Energía).",
+        "Un grifo que gotea pierde hasta 75 litros de agua al día (Organización Mundial de la Salud).",
+        "La producción de ropa genera el 10% de las emisiones globales de carbono (ONU Medio Ambiente).",
+        "Cada año se desperdician 1,300 millones de toneladas de alimentos, equivalente a US$1 billón (FAO).",
+        "Los edificios consumen el 36% de la energía global y emiten el 39% del CO₂ (Global Alliance for Buildings and Construction).",
+        "Reciclar aluminio ahorra el 95% de la energía necesaria para producirlo nuevo (Instituto del Aluminio).",
+        "Los océanos absorben el 25% del CO₂ emitido por humanos, acidificando sus aguas (UNESCO).",
+        "La economía circular podría reducir un 48% las emisiones de la UE para 2030 (Fundación Ellen MacArthur).",
+        "Una bombilla LED consume un 85% menos de energía que una incandescente (Departamento de Energía de EE.UU.).",
+        "El 80% de los plásticos oceánicos provienen de fuentes terrestres (National Geographic).",
+        "Reutilizar 1 kg de textiles evita 25 kg de CO₂ y reduce 6,000 litros de consumo de agua (WRAP UK).",
+        "Los vehículos eléctricos reducen emisiones en un 50-70% comparados con los de gasolina (Agencia Internacional de Energía).",
+        "La agricultura regenerativa podría secuestrar 250 millones de toneladas de CO₂ anuales en suelos (Drawdown Project).",
+        "El 60% de los residuos electrónicos no se recicla formalmente (Global E-waste Monitor).",
+        "Cada minuto se compran 1 millón de botellas plásticas en el mundo (UNEP).",
+        "Los humedales naturales purifican agua y almacenan carbono 55 veces más rápido que bosques (Convención Ramsar).",
+        "Duplicar la vida útil de un smartphone reduce sus emisiones en un 40% (European Environmental Bureau).",
+        "Los parques eólicos marinos podrían generar 18 veces la demanda eléctrica global actual (IEA).",
+        "El compostaje reduce un 50% el volumen de residuos en vertederos (EPA).",
+        "La deforestación causa el 12-20% de las emisiones globales de GEI (IPCC).",
+        "Usar transporte público reduce tu huella de carbono en un 67% vs. auto privado (UITP).",
+        "Un árbol adulto absorbe 22 kg de CO₂ al año y libera oxígeno para 2 personas (Arbor Day Foundation).",
+        "La moda rápida ha aumentado un 400% el consumo textil en 20 años (Ellen MacArthur Foundation).",
+        "Las energías renovables crearon 12 millones de empleos globales en 2023 (IRENA).",
+        "Reciclar vidrio ahorra un 30% de energía vs. producción nueva (Glass Packaging Institute).",
+        "La carne bovina genera 60 kg de GEI por kg producido, 300 veces más que legumbres (Science Journal).",
+        "Las ciudades ocupan el 3% del planeta pero consumen el 78% de la energía (ONU-Hábitat).",
+        "Restaurar el 15% de ecosistemas degradados evitaría el 60% de extinciones (Convención de Biodiversidad).",
+        "El agua reciclada podría cubrir el 40% de la demanda industrial mundial (Banco Mundial)."
     };
 
 
@@ -206,7 +206,7 @@ public class GameManager : GenericSingleton<GameManager>
         if(Input.GetKeyDown(KeyCode.S))
         {
 
-            _player.SacrifyCard(PlayerSelectedCard, 5);
+            _player.SacrifyCard(PlayerSelectedCard, 1);
 
         }
 
@@ -234,7 +234,13 @@ public class GameManager : GenericSingleton<GameManager>
 
         if(!CanPlay())
         {
-            _pcPlayer.PassTurn();
+            var r = Random.Range(0, 101);
+
+            if(r < 50)
+                _pcPlayer.PassTurn();
+            else 
+                _pcPlayer.SacrifyCard(_pcPlayer.HandsCards[Random.Range(0, _pcPlayer.HandsCards.Count)], 1);
+            
             yield return null;
         }
         
@@ -276,7 +282,7 @@ public class GameManager : GenericSingleton<GameManager>
 
     public void Sacrify()
     {
-        _player.SacrifyCard(PlayerSelectedCard, 5);
+        _player.SacrifyCard(PlayerSelectedCard, 1);
 
         UICardManager.Instance.FadeOutPanne();
 

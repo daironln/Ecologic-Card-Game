@@ -191,17 +191,8 @@ public class CardVisual : MonoBehaviour
         {
             card.transform.localPosition += (card.cardVisual.transform.up * card.selectionOffset);
 
-            UICardManager.Instance.FadeInPanne();
+            UICardManager.Instance.FadeInPanne(this);
 
-            UICardManager.Instance.CardImage.sprite = this.cardImage.sprite;
-            UICardManager.Instance.CardTittle.SetText(this.parentCard.CardTittle);
-            UICardManager.Instance.CardDescription.SetText(parentCard.CardDescription);
-            UICardManager.Instance.CardType.SetText($"•{parentCard.Clasification}•");
-
-
-            UICardManager.Instance.CardInsideTittle.SetText(parentCard.CardTittle.ToUpper());
-            UICardManager.Instance.CardInsideTipo.SetText(parentCard.Clasification);
-            UICardManager.Instance.CardInsideDescription.SetText(parentCard.CardDescription);
 
         }
         
