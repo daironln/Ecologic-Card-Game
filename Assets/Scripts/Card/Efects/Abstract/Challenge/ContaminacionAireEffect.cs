@@ -11,6 +11,7 @@ public class ContaminacionAireEffect : IEffect, IRemobableEffect
 
     public bool AplyEfect(PlayerStats player)
     {
+     
         player.ReduceSustentabilityPoints(player.SustainabilityPoints / 2);
 
         return true;

@@ -17,6 +17,8 @@ public class SequiaExtremaEffect : IEffect, IRemobableEffect
             return false;
         }
 
+        player.GetResiduos(1);
+
         //Bloquear generacion
 
         foreach(var e in player.Effects)

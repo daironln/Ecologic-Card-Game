@@ -110,6 +110,10 @@ public class PlayerStats : MonoBehaviour
         Effects.RemoveAll(eff => !eff.IsActive());
 
 
+        if(WastePoints >= GameManager.Instance.WasteToLose)
+            GameManager.Instance.WinGame(contrario.isPc, true);
+
+
 
     }
 
@@ -222,8 +226,8 @@ public class PlayerStats : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        if(GameManager.Instance.DeckCard.CardsCount() > 0)
-            HandsCards.Add(HorizontalCardHolder.AddCard(GameManager.Instance.DeckCard.GetCard(), isPc: isPc));
+        // if(GameManager.Instance.DeckCard.CardsCount() > 0)
+        HandsCards.Add(HorizontalCardHolder.AddCard(GameManager.Instance.DeckCard.GetCard(), isPc: isPc));
         
         yield return new WaitForSeconds(0.3f);
     }

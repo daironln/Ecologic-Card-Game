@@ -25,7 +25,7 @@ public class UICardManager : GenericSingleton<UICardManager>
 
     public void FadeInPanne(CardVisual visual)
     {
-        EducativePhrase.SetText(GameManager.Instance.frasesSostenibilidad[Random.Range(0, GameManager.Instance.frasesSostenibilidad.Length)]);
+        EducativePhrase.SetText(GameManager.Instance.SustentabilityPhrases[Random.Range(0, GameManager.Instance.SustentabilityPhrases.Length)]);
         Panne.transform.GetComponent<CanvasGroup>().DOFade(1, 0.4f).SetEase(Ease.OutBack);
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum GameState
@@ -50,7 +51,7 @@ public class GameManager : GenericSingleton<GameManager>
 {
 
 
-    public string[] frasesSostenibilidad = 
+    public string[] SustentabilityPhrases = 
     {
         "Reciclar una tonelada de papel salva 17 árboles y ahorra 26,500 litros de agua (EPA).",
         "La energía solar podría satisfacer el 45% de la demanda eléctrica mundial para 2050 (Agencia Internacional de Energía).",
@@ -90,7 +91,8 @@ public class GameManager : GenericSingleton<GameManager>
 
 
 
-    
+    [SerializeField] private int _cantCardInDeck = 100;
+    public int WasteToLose = 10;
     public GameState GameState {get; set;} = GameState.None;
 
     public Deck DeckCard;
@@ -130,23 +132,36 @@ public class GameManager : GenericSingleton<GameManager>
         
     }
 
-    public void WinGame(bool isPc)
+    public void WinGame(bool isPc, bool isWaste = false)
     {
+
         UIManager.Instance.FadeInSelectionPanne();
+
+        void LoadAgain()
+        {
+            SceneManager.LoadScene(1);
+        }
 
         if(isPc)
         {
+
             GameState = GameState.InGameOver;
             _pcPlayer.canPlay = false;
             _player.canPlay = false;
 
-            UIManager.Instance.SelectionPanneTittle.SetText("Que mal has perido!");
-            UIManager.Instance.SelectionPanneDescripcion.SetText("Desea volver al menu principal (A) o continuar jugando (B?");
+            if(isWaste)
+                UIManager.Instance.SelectionPanneTittle.SetText("Que mal!. Límite de residuos");
+            else
+                UIManager.Instance.SelectionPanneTittle.SetText("Que mal!. Te superan en puntos");
+
+
+
+            UIManager.Instance.SelectionPanneDescripcion.SetText("Desea volver al menu principal (A) o continuar jugando (B)?");
 
 
             UIManager.Instance.SelectionPanneImage.sprite = UIManager.Instance.Logo;
             UIManager.Instance.SelectionPanneButnA.onClick.AddListener(UIManager.Instance.ToMenu);
-            UIManager.Instance.SelectionPanneButnB.onClick.AddListener(UIManager.Instance.Continue);
+            UIManager.Instance.SelectionPanneButnB.onClick.AddListener(LoadAgain);
         }
         else
         {
@@ -154,12 +169,17 @@ public class GameManager : GenericSingleton<GameManager>
             _pcPlayer.canPlay = false;
             _player.canPlay = false;
 
-            UIManager.Instance.SelectionPanneTittle.SetText("Enhorabuena has Ganado!");
-            UIManager.Instance.SelectionPanneDescripcion.SetText("Desea volver al menu principal (A) o continuar jugando (B?");
+            if(isWaste)
+                UIManager.Instance.SelectionPanneTittle.SetText("Has Ganado! Límite de residuos");
+            else
+                UIManager.Instance.SelectionPanneTittle.SetText("Has Ganado! Superas en puntos");
+
+
+            UIManager.Instance.SelectionPanneDescripcion.SetText("Desea volver al menu principal (A) o continuar jugando (B)?");
 
             UIManager.Instance.SelectionPanneImage.sprite = UIManager.Instance.Logo;
-            UIManager.Instance.SelectionPanneButnA.onClick.AddListener(Play);
-            UIManager.Instance.SelectionPanneButnB.onClick.AddListener(Sacrify);
+            UIManager.Instance.SelectionPanneButnA.onClick.AddListener(UIManager.Instance.ToMenu);
+            UIManager.Instance.SelectionPanneButnB.onClick.AddListener(LoadAgain);
         }
     }
 
@@ -198,8 +218,14 @@ public class GameManager : GenericSingleton<GameManager>
         if(Input.GetKeyDown(KeyCode.A))
         {
 
-            foreach(var e in _player.Effects)
-                Debug.Log($"Effecs player {e}");
+            _player.WastePoints += 1;
+
+        }
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+
+            _pcPlayer.WastePoints += 1;
 
         }
 
@@ -282,7 +308,7 @@ public class GameManager : GenericSingleton<GameManager>
 
     public void Sacrify()
     {
-        _player.SacrifyCard(PlayerSelectedCard, 1);
+        _player.SacrifyCard(PlayerSelectedCard, 2);
 
         UICardManager.Instance.FadeOutPanne();
 
@@ -320,7 +346,7 @@ public class GameManager : GenericSingleton<GameManager>
 
         int cont = 0;
 
-        for(int i = 0; i < 100; i ++)
+        for(int i = 0; i < _cantCardInDeck; i ++)
         {
             var j = Random.Range(0, 16);
 

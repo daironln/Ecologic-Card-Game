@@ -8,6 +8,35 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     public GameObject OptionPanne;
+
+    public Slider brightnessSlider;
+    private float defaultBrightness;
+
+    void Start()
+    {
+
+        defaultBrightness = Screen.brightness;
+        
+  
+        brightnessSlider.minValue = 0.1f; 
+        brightnessSlider.maxValue = 1f;
+        brightnessSlider.value = defaultBrightness;
+        
+
+        brightnessSlider.onValueChanged.AddListener(SetBrightness);
+    }
+
+    public void SetBrightness(float value)
+    {
+    
+        Screen.brightness = value;
+    }
+
+    void OnApplicationQuit()
+    {
+ 
+        Screen.brightness = defaultBrightness;
+    }
     public void Play()
     {
         SceneManager.LoadScene(1);

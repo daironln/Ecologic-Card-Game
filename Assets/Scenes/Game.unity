@@ -1326,7 +1326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 428.46997, y: 142}
+  m_AnchoredPosition: {x: 428.46997, y: 148.9}
   m_SizeDelta: {x: 476.02, y: 87.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280173322
@@ -5576,7 +5576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -221.91992, y: 37.899902}
+  m_AnchoredPosition: {x: -221.91992, y: 49.5}
   m_SizeDelta: {x: 395.83, y: 66.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432430185
@@ -5626,8 +5626,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6716,37 +6716,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e012c6857628a374e8653ef65fd5a1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frasesSostenibilidad:
-  - "Reciclar 1 tonelada de papel salva 17 \xE1rboles (EPA)"
-  - "La energ\xEDa solar cubrir\xE1 45% de electricidad mundial en 2050 (IEA)"
-  - "Un grifo que gotea pierde 75L agua/d\xEDa (OMS)"
-  - "La moda r\xE1pida genera 10% de emisiones globales (ONU)"
-  - 1/3 de los alimentos se desperdicia mundialmente (FAO)
-  - "Edificios consumen 36% de energ\xEDa global (GlobalABC)"
-  - "Reciclar aluminio ahorra 95% de energ\xEDa (IAI)"
-  - "Oc\xE9anos absorben 25% del CO\u2082 humano (UNESCO)"
-  - "Econom\xEDa circular reduce 48% emisiones UE (Ellen MacArthur)"
-  - LEDs consumen 85% menos que bombillas incandescentes (DoE)
-  - "80% pl\xE1sticos oce\xE1nicos viene de tierra (NatGeo)"
-  - "Reusar 1kg textiles evita 25kg CO\u2082 (WRAP UK)"
-  - "Veh\xEDculos el\xE9ctricos reducen 60% emisiones (IEA)"
-  - "Agricultura regenerativa captura CO\u2082 en suelos (Drawdown)"
-  - "Solo 40% de electr\xF3nicos se recicla (UNU)"
-  - "1 mill\xF3n botellas pl\xE1sticas compradas/minuto (UNEP)"
-  - "Humedales almacenan 55x m\xE1s carbono que bosques (Ramsar)"
-  - Doblar vida de smartphone reduce 40% emisiones (EEB)
-  - "Energ\xEDa e\xF3lica marina podr\xEDa abastecer mundo x18 (IEA)"
-  - Compostaje reduce 50% residuos en vertederos (EPA)
-  - "Deforestaci\xF3n causa 15% emisiones globales (IPCC)"
-  - "Transporte p\xFAblico reduce 67% huella carbono (UITP)"
-  - "1 \xE1rbol absorbe 22kg CO\u2082/a\xF1o (Arbor Day)"
-  - "Consumo textil aument\xF3 400% en 20 a\xF1os (Ellen MacArthur)"
-  - Renovables crearon 12M empleos en 2023 (IRENA)
-  - "Reciclar vidrio ahorra 30% energ\xEDa (GPI)"
-  - "Carne bovina genera 60kg CO\u2082/kg (Science)"
-  - "Ciudades consumen 78% energ\xEDa mundial (ONU-H\xE1bitat)"
-  - Restaurar 15% ecosistemas evita 60% extinciones (CDB)
-  - "Agua reciclada cubrir\xEDa 40% demanda industrial (Banco Mundial)"
+  SustentabilityPhrases:
+  - "Reciclar una tonelada de papel salva 17 \xE1rboles y ahorra 26,500 litros de
+    agua (EPA)."
+  - "La energ\xEDa solar podr\xEDa satisfacer el 45% de la demanda el\xE9ctrica mundial
+    para 2050 (Agencia Internacional de Energ\xEDa)."
+  - "Un grifo que gotea pierde hasta 75 litros de agua al d\xEDa (Organizaci\xF3n
+    Mundial de la Salud)."
+  - "La producci\xF3n de ropa genera el 10% de las emisiones globales de carbono
+    (ONU Medio Ambiente)."
+  - "Cada a\xF1o se desperdician 1,300 millones de toneladas de alimentos, equivalente
+    a US$1 bill\xF3n (FAO)."
+  - "Los edificios consumen el 36% de la energ\xEDa global y emiten el 39% del CO\u2082
+    (Global Alliance for Buildings and Construction)."
+  - "Reciclar aluminio ahorra el 95% de la energ\xEDa necesaria para producirlo nuevo
+    (Instituto del Aluminio)."
+  - "Los oc\xE9anos absorben el 25% del CO\u2082 emitido por humanos, acidificando
+    sus aguas (UNESCO)."
+  - "La econom\xEDa circular podr\xEDa reducir un 48% las emisiones de la UE para
+    2030 (Fundaci\xF3n Ellen MacArthur)."
+  - "Una bombilla LED consume un 85% menos de energ\xEDa que una incandescente (Departamento
+    de Energ\xEDa de EE.UU.)."
+  - "El 80% de los pl\xE1sticos oce\xE1nicos provienen de fuentes terrestres (National
+    Geographic)."
+  - "Reutilizar 1 kg de textiles evita 25 kg de CO\u2082 y reduce 6,000 litros de
+    consumo de agua (WRAP UK)."
+  - "Los veh\xEDculos el\xE9ctricos reducen emisiones en un 50-70% comparados con
+    los de gasolina (Agencia Internacional de Energ\xEDa)."
+  - "La agricultura regenerativa podr\xEDa secuestrar 250 millones de toneladas de
+    CO\u2082 anuales en suelos (Drawdown Project)."
+  - "El 60% de los residuos electr\xF3nicos no se recicla formalmente (Global E-waste
+    Monitor)."
+  - "Cada minuto se compran 1 mill\xF3n de botellas pl\xE1sticas en el mundo (UNEP)."
+  - "Los humedales naturales purifican agua y almacenan carbono 55 veces m\xE1s r\xE1pido
+    que bosques (Convenci\xF3n Ramsar)."
+  - "Duplicar la vida \xFAtil de un smartphone reduce sus emisiones en un 40% (European
+    Environmental Bureau)."
+  - "Los parques e\xF3licos marinos podr\xEDan generar 18 veces la demanda el\xE9ctrica
+    global actual (IEA)."
+  - El compostaje reduce un 50% el volumen de residuos en vertederos (EPA).
+  - "La deforestaci\xF3n causa el 12-20% de las emisiones globales de GEI (IPCC)."
+  - "Usar transporte p\xFAblico reduce tu huella de carbono en un 67% vs. auto privado
+    (UITP)."
+  - "Un \xE1rbol adulto absorbe 22 kg de CO\u2082 al a\xF1o y libera ox\xEDgeno para
+    2 personas (Arbor Day Foundation)."
+  - "La moda r\xE1pida ha aumentado un 400% el consumo textil en 20 a\xF1os (Ellen
+    MacArthur Foundation)."
+  - "Las energ\xEDas renovables crearon 12 millones de empleos globales en 2023 (IRENA)."
+  - "Reciclar vidrio ahorra un 30% de energ\xEDa vs. producci\xF3n nueva (Glass Packaging
+    Institute)."
+  - "La carne bovina genera 60 kg de GEI por kg producido, 300 veces m\xE1s que legumbres
+    (Science Journal)."
+  - "Las ciudades ocupan el 3% del planeta pero consumen el 78% de la energ\xEDa
+    (ONU-H\xE1bitat)."
+  - "Restaurar el 15% de ecosistemas degradados evitar\xEDa el 60% de extinciones
+    (Convenci\xF3n de Biodiversidad)."
+  - "El agua reciclada podr\xEDa cubrir el 40% de la demanda industrial mundial (Banco
+    Mundial)."
+  _cantCardInDeck: 100
+  WasteToLose: 10
   DeckCard: {fileID: 1296720587}
   CardsDisponivility: 06000000060000000600000006000000080000000800000008000000080000000800000008000000080000000800000008000000080000000800000008000000
   Images:

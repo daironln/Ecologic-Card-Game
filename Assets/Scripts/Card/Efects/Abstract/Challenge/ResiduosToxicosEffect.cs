@@ -11,6 +11,7 @@ public class ResiduosToxicosEffect : IEffect, IRemobableEffect
     {
         Debug.Log($"ResidupsToxicos to {player.isPc}");
 
+
         ElegirOpc(player);
 
         return true;

@@ -6,8 +6,8 @@ public class ReciclajeUrbanoEffect : IEffect
 {
     public bool AplyEfect(PlayerStats player)
     {
-        player.DescartarResiduo(2);
-        player.GetRawMaterials(1);
+        // player.DescartarResiduo(2);
+        player.GetRawMaterials(2);
 
         return true;
     }
