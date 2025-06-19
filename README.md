@@ -48,7 +48,7 @@ Un juego de cartas sobre sostenibilidad.
 
 
   
-  Y lee la descripcion para obtener informacion
+  Lee la descripcion para obtener informacion y juega la carta.
 
 </div>
 
